@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+//? Juan Gallardo 16-03-2022
+import React, { useState } from 'react';
+import FetchCard from './FetchCard';
+import Lifecycle from './Lifecycle';
+import ResizeApp from './ResizeApp';
 
 function App() {
+  const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={() => setShow1(!show1)}>
+        Show/Hide
+      </button>
+      { show1 && <Lifecycle/> }
+      <FetchCard/>
+      <button onClick={() => setShow2(!show2)}>
+        Show/Hide
+      </button>
+      { show2 && <ResizeApp/> }
     </div>
   );
 }
